@@ -1,52 +1,76 @@
-docker的安装
-==========
+# Docker安装
+
+## 版本选择
+
+docker 目前分为 Community Edition (CE) 和 Enterprise Edition (EE) 两个版本。日常学习开发考虑使用CE版本。
+
+而 Docker Community Edition (CE) 又分为 stable 和 edge 两个版本，如果不需要最新的特性，那么 stable 是比较合适的选择。
+
+以下安装都是选择 Docker Community Edition stable 版本， 参考docker官网的文章:
+
+https://docs.docker.com/engine/installation/
 
 ## linux下安装
 
-参考docker官网的文章:
+以 ubuntu 为例，参考官网资料：
 
-[http://docs.docker.com/linux/step_one/](http://docs.docker.com/linux/step_one/)
+https://docs.docker.com/engine/installation/linux/ubuntu/
 
-使用docker提供的安装脚本安装:
+安装步骤如下：
 
-    wget -qO- https://get.docker.com/ | sh
+1. 卸载旧版本
 
-安装脚本输出内容:
+	```bash
+    sudo apt-get remove docker docker-engine
+	```
 
-	......
-    + sudo -E sh -c docker version
-    Client:
-     Version:      1.8.2
-     API version:  1.20
-     Go version:   go1.4.2
-     Git commit:   0a8c2e3
-     Built:        Thu Sep 10 19:19:00 UTC 2015
-     OS/Arch:      linux/amd64
+2. 安装docker
 
-    Server:
-     Version:      1.8.2
-     API version:  1.20
-     Go version:   go1.4.2
-     Git commit:   0a8c2e3
-     Built:        Thu Sep 10 19:19:00 UTC 2015
-     OS/Arch:      linux/amd64
+	简单起见，使用 docker 仓库安装。
 
-    If you would like to use Docker as a non-root user, you should now consider
-    adding your user to the "docker" group with something like:
+    ```bash
+    sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+    sudo apt-get update
+    sudo apt-get install docker-ce
+	```
 
-      sudo usermod -aG docker sky
+3. 验证安装
 
-    Remember that you will have to log out and back in for this to take effect!
+	安装完成之后，验证一下：
 
-为了以非root用户使用docker, 可以将用户加入"docker"组.
+    ```bash
+    sudo docker run hello-world
+	```
 
+	输出如下：
+
+    ```bash
+    $ sudo docker run hello-world
+    Unable to find image 'hello-world:latest' locally
+
+    latest: Pulling from library/hello-world
+    78445dd45222: Pull complete
+    Digest: sha256:c5515758d4c5e1e838e9cd307f6c6a0d620b5e07e6f927b07d05f6d12a1ac8d7
+    Status: Downloaded newer image for hello-world:latest
+
+    Hello from Docker!
+    This message shows that your installation appears to be working correctly.
+    ...
+    ```
+
+4. 设置权限避免每次sudo
+
+	为了以非root用户使用docker, 可以将用户加入"docker"组.
+
+	```bash
     sudo usermod -aG docker sky
+	```
+
+	重新登录之后生效。
 
 ## windows下安装
 
-参考docker官网的文章:
-
-[http://docs.docker.com/windows/started/](http://docs.docker.com/windows/started/)
-
-TBD: 下次在windows上试试
+TBD
 
