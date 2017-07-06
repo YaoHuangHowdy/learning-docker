@@ -186,3 +186,24 @@ docker top 子命令用于查看容器内运行的进程
 docker exec 子命令用于在容器内启动新进程:
 
 	docker exec -d 
+
+## TIPS
+
+#### 删除 TAG 为 none 的镜像
+
+通过 `docker images` 查看当前的镜像列表：
+
+```bash
+$ docker images
+REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+<none>                                 <none>              55d497da8a57        7 days ago          681 MB
+<none>                                 <none>              b64541612585        8 days ago          681 MB
+<none>                                 <none>              f62205cf80d7        8 days ago          681 MB
+192.168.31.34/squid/integrate-server   latest              e68226228bdb        8 days ago          682 MB
+```
+
+可以通过下列的命令组合删除：
+
+```bash
+docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi
+```
