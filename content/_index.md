@@ -1,6 +1,14 @@
-# Docker学习笔记
+---
+date: 2018-10-27T08:41:00+08:00
+title: 前言
+weight: 1
+keywords:
+- docker
+- 学习笔记
+description : "介绍docker学习笔记的基本资料和访问方式"
+---
 
-![](content/introduction/images/docker-logo.jpg)
+![](introduction/images/docker-logo.jpg)
 
 ### 内容介绍
 
