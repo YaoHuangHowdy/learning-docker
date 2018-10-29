@@ -59,16 +59,42 @@ googleAnalytics = "c7442f5794ea2abb71c6ff05dc0b8779"
 	weight = 1
 
 [[menu.main]]
-	name   = "介绍"
+	name   = "Docker介绍"
 	identifier = "introduction"
 	url    = "/introduction/"
 	weight = 100
 
 [[menu.main]]
-	name   = "安装"
+	name   = "Docker安装"
 	identifier = "installation"
 	url    = "/installation/"
 	weight = 200
+
+[[menu.main]]
+	name   = "Docker命令"
+	identifier = "command"
+	url    = "/command/"
+	weight = 300
+
+[[menu.main]]
+	name   = "Docker镜像"
+	identifier = "image"
+	url    = "/image/"
+	weight = 400
+
+[[menu.main]]
+	name   = "Dockerfile"
+	identifier = "dockerfile"
+	url    = "/dockerfile/"
+	weight = 500
+
+[[menu.main]]
+	name   = "镜像仓库"
+	identifier = "repository"
+	url    = "/repository/"
+	weight = 600
+
+
 
 [blackfriday]
 	smartypants	= true
