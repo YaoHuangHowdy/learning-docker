@@ -39,6 +39,27 @@ CPython version: 3.6.7
 OpenSSL version: OpenSSL 1.1.0f  25 May 2017
 ```
 
+### 错误处理
+
+如果遇到执行`docker-compose up`命令时报错：
+
+```bash
+$ docker-compose up --build -d
+ERROR: Couldn't connect to Docker daemon at http+docker://localhost - is it running?
+
+If it's at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
+```
+
+请检查是否有将当前用户加入docker组，如果已经有加入，则可能是加入后还没有重新登录。建议退出当前用户再重新登录，或者重启，如果不想退出当前用户，可以用一个取巧的方案：
+
+```bash
+sudo su  # 先su到root用户
+su sky   # 再su当当前用户
+docker-compose up -d    # 再执行命令
+```
+
+
+
 ### 参考资料
 
 - https://henryz.gitbooks.io/learing-docker-compose/
