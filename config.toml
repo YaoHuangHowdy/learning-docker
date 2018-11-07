@@ -94,7 +94,11 @@ googleAnalytics = "c7442f5794ea2abb71c6ff05dc0b8779"
 	url    = "/repository/"
 	weight = 600
 
-
+[[menu.main]]
+	name   = "Docker Compose"
+	identifier = "compose"
+	url    = "/compose/"
+	weight = 700
 
 [blackfriday]
 	smartypants	= true
