@@ -1,7 +1,7 @@
 ---
 date: 2018-10-27T09:10:00+08:00
 title: Linux安装
-weight: 210
+weight: 211
 menu:
   main:
     parent: "installation"
@@ -12,7 +12,7 @@ description : "Docker在Linux下的安装"
 
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-## 安装准备
+### 安装准备
 
 看一下自己的Linux机器版本和内核信息：
 
@@ -40,19 +40,19 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 这台机器是Linux Mint 18.3 升级到非常新的Linux内核4.15.0-38了，Linux Mint 18.3 是基于 Ubuntu 16.04，但是有些系统参数不一样，比如这里 Codename 是 `sylvia`，而不是 Ubuntu 16.04 的 `xenial`。后面安装时要小心，需要修改为 Ubuntu 16.04 的参数。
 
-## 安装步骤
+### 安装步骤
 
 1. 卸载旧版本
 
-  ```bash
-  sudo apt-get remove docker docker-engine docker.io
-  ```
+    ```bash
+    sudo apt-get remove docker docker-engine docker.io
+    ```
 
 2. 安装docker
 
-  简单起见，使用 docker 仓库安装。
+    简单起见，使用 docker 仓库安装。
 
-  ```bash
+    ```bash
     sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     # 官方给的是这样，但是`lsb_release -cs`在Linux Mint下取值会不对，因此手工修改为xenial
@@ -60,25 +60,25 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
     sudo apt-get update
     sudo apt-get install docker-ce
-  ```
+    ```
 
 3. 验证安装
 
-  安装完成之后，看一下版本信息：
+    安装完成之后，看一下版本信息：
 
-  ```bash
-  $ docker version
-  Client:
-   Version:           18.06.1-ce
-   API version:       1.38
-   Go version:        go1.10.3
-   Git commit:        e68fc7a
-   Built:             Tue Aug 21 17:24:56 2018
-   OS/Arch:           linux/amd64
-   Experimental:      false
+    ```bash
+    $ docker version
+    Client:
+    Version:           18.06.1-ce
+    API version:       1.38
+    Go version:        go1.10.3
+    Git commit:        e68fc7a
+    Built:             Tue Aug 21 17:24:56 2018
+    OS/Arch:           linux/amd64
+    Experimental:      false
 
-  Server:
-   Engine:
+    Server:
+    Engine:
     Version:          18.06.1-ce
     API version:      1.38 (minimum version 1.12)
     Go version:       go1.10.3
@@ -87,17 +87,17 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     OS/Arch:          linux/amd64
     Experimental:     false
 
-  ```
+    ```
 
-  验证一下：
+    验证一下：
 
-  ```bash
+    ```bash
     sudo docker run hello-world
-  ```
+    ```
 
-  输出如下：
+    输出如下：
 
-  ```bash
+    ```bash
     $ sudo docker run hello-world
     Unable to find image 'hello-world:latest' locally
 
@@ -109,14 +109,14 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     Hello from Docker!
     This message shows that your installation appears to be working correctly.
     ...
-  ```
+    ```
 
 4. 设置权限避免每次sudo
 
-  为了以非root用户使用docker, 可以将用户加入"docker"组.
+    为了以非root用户使用docker, 可以将用户加入"docker"组.
 
-  ```bash
+    ```bash
     sudo usermod -aG docker sky
-  ```
+    ```
 
-  重新登录之后生效。
+	重新登录之后生效。
