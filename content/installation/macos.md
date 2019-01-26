@@ -16,6 +16,8 @@ https://docs.docker.com/docker-for-mac/install/
 
 新版本的MacOs 推荐使用 `Docker for Ma `，要是是Apple Mac OS Yosemite 10.10.3 或者更高. 对于早期版本的macos建议使用 [Docker Toolbox](https://docs.docker.com/toolbox/overview/) 。
 
+## 手工安装
+
 我选择按照 Docker CE for Mac，官方介绍见：
 
 https://store.docker.com/editions/community/docker-ce-desktop-mac
@@ -98,3 +100,15 @@ For more examples and ideas, visit:
 
 备注：macos下运行 docker，似乎没有 linux 下 root 权限的问题。
 
+## brew自动安装
+
+目前brew已经支持docker安装，只要简单执行命令即可：
+
+```bach
+brew cask install docker
+```
+
+参考文章：
+
+- [MacOS Docker 安装](http://www.runoob.com/docker/macos-docker-install.html)
+- [macOS 安装 Docker](https://yeasy.gitbooks.io/docker_practice/install/mac.html)
