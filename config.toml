@@ -77,6 +77,34 @@ googleAnalytics = "c7442f5794ea2abb71c6ff05dc0b8779"
 	weight = 300
 
 [[menu.main]]
+	name   = "基础命令"
+	identifier = "command-basic"
+	parent = "command"
+	url    = "/command/basic/"
+	weight = 310
+
+[[menu.main]]
+	name   = "镜像命令"
+	identifier = "command-image"
+	parent = "command"
+	url    = "/command/image/"
+	weight = 320
+
+[[menu.main]]
+	name   = "容器命令"
+	identifier = "command-container"
+	parent = "command"
+	url    = "/command/container/"
+	weight = 340
+	
+[[menu.main]]
+	name   = "资源命令"
+	identifier = "command-resource"
+	parent = "command"
+	url    = "/command/resource/"
+	weight = 360
+
+[[menu.main]]
 	name   = "Docker镜像"
 	identifier = "image"
 	url    = "/image/"
