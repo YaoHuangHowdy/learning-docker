@@ -11,7 +11,8 @@ description : "收集Docker的各种资料"
 ## 官方资料
 
 - [Docker官方网站](https://www.docker.com/)
-- [Docker官方文档](https://docs.docker.com/)
+- [Docker官方文档](https://docs.docker.com/): 这份文档还是挺好的，
+- [Docker官方文档中文版](https://docs.docker-cn.com/): 可惜只翻译了小部分内容
 
 
 

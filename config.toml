@@ -112,14 +112,28 @@ googleAnalytics = "c7442f5794ea2abb71c6ff05dc0b8779"
 
 [[menu.main]]
 	name   = "Dockerfile"
-	identifier = "dockerfile"
-	url    = "/dockerfile/"
-	weight = 500
+	identifier = "image-dockerfile"
+	parent = "image"
+	url    = "/image/dockerfile/"
+	weight = 410
 
 [[menu.main]]
 	name   = "镜像仓库"
-	identifier = "repository"
-	url    = "/repository/"
+	identifier = "image-repository"
+	parent = "image"
+	url    = "/image/repository/"
+	weight = 420
+
+[[menu.main]]
+	name   = "网络"
+	identifier = "network"
+	url    = "/network/"
+	weight = 500
+
+[[menu.main]]
+	name   = "存储"
+	identifier = "storage"
+	url    = "/storage/"
 	weight = 600
 
 [[menu.main]]
