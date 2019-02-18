@@ -55,7 +55,9 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     ```bash
     sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    # 官方给的是这样，但是`lsb_release -cs`在Linux Mint下取值会不对，因此手工修改为xenial
+    # 官方给的是这样，但是`lsb_release -cs`在Linux Mint下取值会不对，因此手工修改
+    # Linux Mint 18是基于ubuntu 16.04，为 xenial
+    # Linux Mint 19是基于ubuntu 18.04，为 bionic
     # sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
     sudo apt-get update
@@ -120,3 +122,17 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     ```
 
 	重新登录之后生效。
+
+5. 安装 docker client
+
+	从下列地址下载到对应的 docker client 安装包：
+
+	https://mirrors.ustc.edu.cn/docker-ce/linux/static/stable/x86_64/
+
+	```bash
+	tar -zxvf docker-18.09.2.tgz
+	cd docker
+	sudo cp * /usr/local/bin/
+	```
+
+	
