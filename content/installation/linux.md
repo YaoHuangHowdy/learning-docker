@@ -59,10 +59,32 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
     # Linux Mint 18是基于ubuntu 16.04，为 xenial
     # Linux Mint 19是基于ubuntu 18.04，为 bionic
     # sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    # for ubuntu 16.04 / linuxmint 18.*
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+    # for ubuntu 18.04 / linuxmint 19.*
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
     sudo apt-get update
     sudo apt-get install docker-ce
     ```
+
+    如果不想安装最新版本，则可以先查看当前可选版本：
+
+    ```bash
+    $ apt-cache madison docker-ce
+     docker-ce | 5:18.09.2~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 5:18.09.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 5:18.09.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 18.06.2~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 18.06.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 18.06.0~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+     docker-ce | 18.03.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+    ```
+	
+	然后执行 :
+	
+	```bash
+	    sudo apt-get install docker-ce=18.06.2~ce~3-0~ubuntu
+	```
 
 3. 验证安装
 
