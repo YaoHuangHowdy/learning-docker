@@ -112,3 +112,57 @@ brew cask install docker
 
 - [MacOS Docker 安装](http://www.runoob.com/docker/macos-docker-install.html)
 - [macOS 安装 Docker](https://yeasy.gitbooks.io/docker_practice/install/mac.html)
+
+## 特殊：AMD黑苹果
+
+有台台式机，用的 amd 锐龙2 cpu，安装了黑苹果。
+
+由于 amd cpu不支持intel的虚拟化技术，而 macos 目前又只支持 intel 虚拟技术来运行docker。因此 docker 安装完成之后就会报错：不兼容。
+
+解决方案就是用 docker-machine + virtualbox，相当于在 virtualbox 中运行一个linux 虚拟机，然后配置 docker client 参数连接到这个虚拟机中去执行 docker 命令。
+
+安装方式：
+
+1. 安装  Docker Toolbox（包括 docker CLI，docker component，）：
+
+   - 参考页面：https://docs.docker.com/toolbox/toolbox_install_mac/
+   - 下载页面：https://github.com/docker/toolbox/releases （版本有点老，凑合用）
+
+2. 安装 virtualbox
+
+   - 下载页面：https://www.virtualbox.org/wiki/Downloads
+   - 安装 VirtualBox  platform packages 和 VM VirtualBox Extension Pack
+
+3. 用 docker-machine 安装
+
+   - 参考页面：https://github.com/docker/machine
+
+   - 执行命令:
+
+     ```bash
+     $ docker-machine create -d virtualbox  --virtualbox-no-vtx-check default
+     $ eval "$(docker-machine env default)"
+     $ docker run busybox echo hello world
+     ```
+   之后在 virtualbox中就可以看到这个虚拟机了，配置非常低，所以可以修改一下，增加cpu和内存。
+
+4. 添加快捷命令
+
+   为了方便设置 docker，修改 `/etc/profile`：
+
+   ```
+   alias docker-default='docker-machine start default; eval "$(docker-machine env default)"'
+   ```
+
+   这样以后每次只要执行 docker-default 命令就可以设置好 docker。
+
+5. 安装 docker.app ，虽然不能用，但是有很多文件是需要的
+
+6. 执行命令:
+
+   ```
+   ln -s "/Applications/Docker.app/Contents//Resources/bin/docker-credential-desktop" "/usr/local/bin/docker-credential-desktop"
+   ln -s "/Applications/Docker.app/Contents//Resources/bin/docker-credential-osxkeychain" "/usr/local/bin/docker-credential-osxkeychain"
+   ```
+
+   
